@@ -54,10 +54,20 @@ function doubleTheMoney() {
   updateDOM();
 }
 function sortByRichest() {
-  data.sort((a, b) => b.money - a.money);
+  data.sort((a, b) => {
+    console.log(a, b);
+    return b.money - a.money;
+  });
+  updateDOM();
+}
+function showMillionaire() {
+  data = data.filter(function (da) {
+    return da.money > 1000000;
+  });
   updateDOM();
 }
 adduserBtn.addEventListener("click", getRandomUser);
 
 doubleBtn.addEventListener("click", doubleTheMoney);
 sortBtn.addEventListener("click", sortByRichest);
+showMillionaireBtn.addEventListener("click", showMillionaire);
